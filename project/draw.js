@@ -6,10 +6,9 @@ const  cols = canvas.width / scale;
 
 let snake;
 let fruit;
-(function setup() {
+function setup() {
     snake = new Snake();
     fruit = new Fruit();
-
 
     fruit.pickLocation();
 
@@ -23,11 +22,14 @@ let fruit;
             fruit.pickLocation();
         }
 
-    },60)
-}());
+    },250)
+
+}
 
 window.addEventListener('keydown',((evt) => {
     const direction = evt.key.replace('Arrow','');
     snake.changeDirection(direction);
     console.log(direction)
-} ))
+} ));
+
+
