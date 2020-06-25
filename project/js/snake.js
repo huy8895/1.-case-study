@@ -8,29 +8,36 @@ function Snake(){
 
     this. draw = function () {
         ctx.fillStyle = 'white';
-        for (let i = 0; i < this.tail.length; i ++){
-            ctx.fillRect(this.tail[i].x, this.tail[i].y,scale,scale)
-        }
+
+
         ctx.fillRect(this.x, this.y, scale, scale);
+
+        ctx.fillRect((this.x - this.xSpeed ), (this.y - this.ySpeed),scale,scale)
+
+
     }
 
-    this.update = function (){
-        for ( let i = 0 ; i < this.tail.length ; i ++){
-            this.tail[i] = this.tail[i + 1];
-        }
-        this.tail[this.total - 1] = { x: this.x, y : this.y}
+    this.update = function () {
         this.x += this.xSpeed;
         this.y += this.ySpeed;
-        if(this.x > canvas.width){
+        /*for (let i = 0; i < this.tail.length; i++) {
+            this.tail[i] = this.tail[i + 1];
+        }*/
+        this.tail[this.total - 1] = {x: (this.x - this.xSpeed ), y: (this.y - this.ySpeed)}
+        for ( let i = 0; i < this.tail.length; i ++){
+
+        }
+
+        if (this.x > canvas.width) {
             this.x = 0;
         }
-        if(this.y > canvas.height){
+        if (this.y > canvas.height) {
             this.y = 0;
         }
-        if(this.x < 0){
+        if (this.x < 0) {
             this.x = canvas.width;
         }
-        if(this.y < 0){
+        if (this.y < 0) {
             this.y = canvas.height;
         }
     }

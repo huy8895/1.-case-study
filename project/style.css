@@ -1,0 +1,22 @@
+.container{
+    width: 600px;
+    height: 500px;
+    border: 5px solid black;
+    margin: 20px auto;
+    display: grid;
+    grid-template-columns: 60% 40%;
+}
+.canvas{
+    position: relative;
+    width: 350px;
+    height: 460px;
+    margin: 20px;
+    border: 1px solid black;
+}
+.scoreBoard{
+    margin: 20px;
+    text-align: right;
+}
+h4, span{
+    font-size: 40px;
+}
