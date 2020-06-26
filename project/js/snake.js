@@ -62,4 +62,18 @@ let Snake = function () {
         }
     }
 
+    this.eat = function(fruit){
+        if((this.x + size) >= fruit.x
+            && (this.y + size) >= fruit.y){
+            this.total ++;
+            return true;
+        }
+        if (this.x <= (fruit.x + sizeFruit)
+            && this.y <= (fruit.y + sizeFruit)){
+            this.total ++;
+            return true;
+        }
+    }
+
+
 }

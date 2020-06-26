@@ -2,6 +2,7 @@ let canvas = document.getElementById('myCanvas');
 let ctx = canvas.getContext('2d');
 let scale = 5;
 let size = 30;
+let sizeFruit = 20;
 let rows = canvas.height/scale;
 let cols = canvas.width/scale;
 
