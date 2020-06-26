@@ -16,6 +16,29 @@ let Snake = function () {
         ctx.fillRect(this.x,this.y,scale,scale);
     }
     this.update = function () {
-        for (let i = 0; i )
+        for (let i = 0; i < this.tail.length - 1; i ++){
+            this.tail[i] = this.tail[i + 1];
+        }
+
+        this.tail[this.total -1] = {
+            x: this.x, y: this.y
+        }
+
+        this.x += this.xSpeed;
+        this.y += this.ySpeed;
+
+        if (this.x > canvas.width){
+            this.x = 0
+        }
+        if (this.y > canvas.height){
+            this.y = 0
+        }
+        if (this.x < 0) {
+            this.x = canvas.width - scale;
+        }
+        if (this.y < 0) {
+            this.y = canvas.height - scale;
+        }
     }
+
 }
