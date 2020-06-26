@@ -15,11 +15,6 @@ let stop;
         snake.draw();
         snake.update();
         stop = requestAnimationFrame(loop)
-        console.log(snake.x);
-        console.log(snake.y);
-        console.log(canvas.width);
-        console.log(canvas.height);
-
     }
 
 /*})()*/

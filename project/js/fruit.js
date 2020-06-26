@@ -5,6 +5,6 @@ let Fruit = function () {
     }
     this.draw = function () {
         this.fillStyle = 'red';
-        ctx.fillRect(this.x,this.y,scale,scale)
+        ctx.fillRect(this.x,this.y,size,size)
     }
 }
