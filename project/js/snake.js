@@ -27,17 +27,17 @@ let Snake = function () {
         this.x += this.xSpeed;
         this.y += this.ySpeed;
 
-        if (this.x >= canvas.width){
+        if (this.x + size> canvas.width){
             this.x = 0
         }
-        if (this.y >= canvas.height){
+        if (this.y + size> canvas.height){
             this.y = 0
         }
         if (this.x < 0) {
-            this.x = canvas.width - scale;
+            this.x = canvas.width - size;
         }
         if (this.y < 0) {
-            this.y = canvas.height - scale;
+            this.y = canvas.height - size;
         }
     }
 
