@@ -17,3 +17,8 @@ let cols = canvas.width/scale;
     }
     requestAnimationFrame(loop)
 })()
+
+
+window.addEventListener('keydown', ((evt) => {
+    const direction = evt.key.replace('Arrow', '');
+}));
