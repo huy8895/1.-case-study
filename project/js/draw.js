@@ -1,35 +1,4 @@
-const canvas = document.getElementById('myCanvas');
-const ctx = canvas.getContext('2d');
-const scale = 10;
-const  rows = canvas.height / scale;
-const  cols = canvas.width / scale;
+let canvas = document.getElementById('myCanvas');
+let ctx = canvas.getContext('2d');
 
-let snake;
-let fruit;
-function setup() {
-    snake = new Snake();
-    fruit = new Fruit();
-
-    fruit.pickLocation();
-
-    window.setInterval(() => {
-        ctx.clearRect(0,0,canvas.width,canvas.height) //xoa cac diem sau khi di qua
-        snake.update();
-        snake.draw();
-        fruit.draw();
-
-        if (snake.eat(fruit)){
-            fruit.pickLocation();
-        }
-
-    },250)
-
-}
-
-window.addEventListener('keydown',((evt) => {
-    const direction = evt.key.replace('Arrow','');
-    snake.changeDirection(direction);
-    console.log(direction)
-} ));
-
-
+ctx.fillRect(0,0,100,100)

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Snake Game</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+  <div class="gameBoard">
+    <canvas id="myCanvas" class="canvas" width="600" height="760" style="border: 1px solid blue"></canvas>
+  </div>
+  <div class="scoreBoard">
+    <h4>Score</h4>
+    <span class="score" id="score">0</span>
+    <h4>Hi-Score</h4>
+    <span id="highScore"></span>
+    <button onclick="setup()">Start</button>
+  </div>
+</div>
+
+
+<!--  <canvas
+    class="canvas"
+    height="300"
+    width="300"
+    style="background-color: #3e3e3e">
+  </canvas>
+  <h1 class="score"></h1>-->
+</body>
+<script type="text/javascript" src="fruit.js"></script>
+<script type="text/javascript" src="snake.js"></script>
+<script type="text/javascript" src="draw.js"></script>
+</html>
