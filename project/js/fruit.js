@@ -1,10 +1,10 @@
 let Fruit = function () {
     this.pickLocation = function (){
-        this.x = (Math.floor(Math.random()*cols) * scale)
-        this.y = (Math.floor(Math.random()*rows) * scale)
+        this.x = Math.random()*(canvas.width - sizeFruit);
+        this.y = Math.random()*(canvas.height - sizeFruit);
     }
     this.draw = function () {
-        this.fillStyle = 'red';
+        ctx.fillStyle = 'red';
         ctx.fillRect(this.x,this.y,sizeFruit,sizeFruit)
     }
 }

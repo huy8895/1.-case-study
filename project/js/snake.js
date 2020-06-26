@@ -8,13 +8,13 @@ let Snake = function () {
 
     this.draw = function () {
         ctx.fillStyle = 'blue';
-        if(this.tail.length > 0){
-            for (let i = 0; this.tail.length; i ++){
-                ctx.fillRect(this.tail[i].x, this.tail[i].y, size, size)
-            }
+        for (let i=0; i<this.tail.length; i++) {
+            ctx.fillRect(this.tail[i].x,
+                this.tail[i].y, size, size);
         }
         ctx.fillRect(this.x,this.y,size,size);
     }
+
     this.update = function () {
         for (let i = 0; i < this.tail.length - 1; i ++){
             this.tail[i] = this.tail[i + 1];
@@ -63,16 +63,12 @@ let Snake = function () {
     }
 
     this.eat = function(fruit){
-        if((this.x + size) >= fruit.x
-            && (this.y + size) >= fruit.y){
+        if((this.x + size > fruit.x && this.x  <= fruit.x + sizeFruit)
+            && (this.y + size >= fruit.y && this.y <= fruit.y + sizeFruit )){
             this.total ++;
             return true;
         }
-        if (this.x <= (fruit.x + sizeFruit)
-            && this.y <= (fruit.y + sizeFruit)){
-            this.total ++;
-            return true;
-        }
+
     }
 
 
