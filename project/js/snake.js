@@ -20,7 +20,7 @@ let Snake = function () {
             this.tail[i] = this.tail[i + 1];
         }
 
-        this.tail[this.total -1] = {
+        this.tail[this.total - 1] = {
             x: this.x, y: this.y
         }
 
@@ -40,6 +40,7 @@ let Snake = function () {
             this.y = canvas.height - size;
         }
     }
+
 
     this.changeDirection = function(direction){
         switch(direction){
@@ -65,11 +66,13 @@ let Snake = function () {
     this.eat = function(fruit){
         if((this.x + size > fruit.x && this.x  <= fruit.x + sizeFruit)
             && (this.y + size >= fruit.y && this.y <= fruit.y + sizeFruit )){
-            this.total ++;
+            this.total += 1;
             return true;
         }
 
     }
+
+
 
 
 }
