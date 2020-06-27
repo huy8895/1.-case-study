@@ -40,7 +40,25 @@ let Snake = function () {
             this.y = canvas.height - size;
         }
     }
+    this.dirNow = function () {
+        if (this.x === this.tail[this.total -1].x
+        && this.y < this.tail[this.total -1].y){
+            return  'up';
+        }
+        if (this.x === this.tail[this.total -1].x
+            && this.y > this.tail[this.total -1].y){
+            return  'down';
+        }
+        if (this.x > this.tail[this.total -1].x
+            && this.y === this.tail[this.total -1].y){
+            return  'right';
+        }
+        if (this.x < this.tail[this.total -1].x
+            && this.y === this.tail[this.total -1].y){
+            return  'left';
+        }
 
+    }
 
     this.changeDirection = function(direction){
         switch(direction){
