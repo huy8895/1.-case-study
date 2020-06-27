@@ -15,7 +15,7 @@ function start() {
     fruit.draw();
     snake.update();
     snake.draw();
-    console.log(snake.dirNow());
+    console.log(snake.direction());
     if (snake.eat(fruit)) {
         fruit.pickLocation();
         document.getElementById('Score').innerHTML = snake.total;

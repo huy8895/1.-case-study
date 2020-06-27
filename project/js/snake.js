@@ -40,7 +40,7 @@ let Snake = function () {
             this.y = canvas.height - size;
         }
     }
-    this.dirNow = function () {
+    this.direction = function () {
         if (this.x === this.tail[this.total -1].x
         && this.y < this.tail[this.total -1].y){
             return  'up';
@@ -61,23 +61,21 @@ let Snake = function () {
     }
 
     this.changeDirection = function(direction){
-        switch(direction){
-            case 'Up':
-                this.xSpeed = 0;
-                this.ySpeed = -scale;
-                break;
-            case 'Down':
-                this.xSpeed = 0;
-                this.ySpeed = scale;
-                break;
-            case 'Left':
-                this.xSpeed = -scale;
-                this.ySpeed = 0;
-                break;
-            case 'Right':
-                this.xSpeed = +scale;
-                this.ySpeed = 0;
-                break;
+        if (direction === 'Up' && snake.direction() !== 'down'){
+            this.xSpeed = 0;
+            this.ySpeed = -scale;
+        }
+        if (direction === 'Down' && snake.direction() !== 'up'){
+            this.xSpeed = 0;
+            this.ySpeed = scale;
+        }
+        if (direction === 'Left' && snake.direction() !== 'right'){
+            this.xSpeed = -scale;
+            this.ySpeed = 0;
+        }
+        if (direction === 'Right' && snake.direction() !== 'lefet'){
+            this.xSpeed = +scale;
+            this.ySpeed = 0;
         }
     }
 
