@@ -1,6 +1,6 @@
 let canvas = document.getElementById('myCanvas');
 let ctx = canvas.getContext('2d');
-let scale = 5;
+let scale = 30;
 let size = 30;
 let sizeFruit = 30;
 let rows = canvas.height/scale;
@@ -15,13 +15,18 @@ function start() {
     fruit.draw();
     snake.update();
     snake.draw();
-    console.log(snake.direction());
     if (snake.eat(fruit)) {
         fruit.pickLocation();
-        document.getElementById('Score').innerHTML = snake.total;
+
     }
+
+    snake.death();
+    document.getElementById('Score').innerHTML = snake.total;
+
 }
-let test = setInterval(start,20)
+let test = setInterval(start,60)
+
+
 function stop (){
     clearInterval(test);
 }

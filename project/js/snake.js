@@ -73,7 +73,7 @@ let Snake = function () {
             this.xSpeed = -scale;
             this.ySpeed = 0;
         }
-        if (direction === 'Right' && snake.direction() !== 'lefet'){
+        if (direction === 'Right' && snake.direction() !== 'left'){
             this.xSpeed = +scale;
             this.ySpeed = 0;
         }
@@ -86,6 +86,14 @@ let Snake = function () {
             return true;
         }
 
+    }
+    this.death = function () {
+        for (let i = 0; i < this.tail.length; i ++){
+            if (this.x === this.tail[i].x &&
+            this.y === this.tail[i].y){
+                stop ();
+            }
+        }
     }
 
 
