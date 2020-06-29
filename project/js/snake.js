@@ -7,7 +7,7 @@ let Snake = function () {
     this.tail = [];
 
     this.draw = function () {
-        ctx.fillStyle = 'blue';
+        ctx.fillStyle = 'blue'
         for (let i=0; i<this.tail.length; i++) {
             ctx.fillRect(this.tail[i].x,
                 this.tail[i].y, size, size);
@@ -21,7 +21,7 @@ let Snake = function () {
         }
 
         this.tail[this.total - 1] = {
-            x: this.x, y: this.y
+            x: this.x , y: this.y
         }
 
         this.x += this.xSpeed;
@@ -41,20 +41,20 @@ let Snake = function () {
         }
     }
     this.direction = function () {
-        if (this.x === this.tail[this.total -1].x
+        if (this.x == this.tail[this.total -1].x
         && this.y < this.tail[this.total -1].y){
             return  'up';
         }
-        if (this.x === this.tail[this.total -1].x
+        if (this.x == this.tail[this.total -1].x
             && this.y > this.tail[this.total -1].y){
             return  'down';
         }
         if (this.x > this.tail[this.total -1].x
-            && this.y === this.tail[this.total -1].y){
+            && this.y == this.tail[this.total -1].y){
             return  'right';
         }
         if (this.x < this.tail[this.total -1].x
-            && this.y === this.tail[this.total -1].y){
+            && this.y == this.tail[this.total -1].y){
             return  'left';
         }
 
@@ -89,14 +89,10 @@ let Snake = function () {
     }
     this.death = function () {
         for (let i = 0; i < this.tail.length; i ++){
-            if (this.x === this.tail[i].x &&
-            this.y === this.tail[i].y){
-                stop ();
+            if(this.x == this.tail[i].x && this.y == this.tail[i].y) {
+                isStop = true;
             }
         }
     }
-
-
-
 
 }
