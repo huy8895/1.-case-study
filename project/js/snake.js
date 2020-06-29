@@ -28,16 +28,16 @@ let Snake = function () {
         this.y += this.ySpeed;
 
         if (this.x + sizeSnake> canvas.width){
-            this.x = 0
+            isStop = true;gameOver();
         }
         if (this.y + sizeSnake> canvas.height){
-            this.y = 0
+            isStop = true;gameOver()
         }
         if (this.x < 0) {
-            this.x = canvas.width - sizeSnake;
+            isStop = true;gameOver()
         }
         if (this.y < 0) {
-            this.y = canvas.height - sizeSnake;
+            isStop = true; gameOver()
         }
     }
     this.direction = function () {
