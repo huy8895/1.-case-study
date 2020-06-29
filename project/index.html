@@ -4,21 +4,18 @@
     <meta charset="UTF-8">
     <title>snake game</title>
    <link rel="stylesheet" href="style.css">
-
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet">
 </head>
 <body>
-<div class="container">
-    <div class="gameBoard">
-        <canvas id="myCanvas" class="canvas" width="600" height="760" ></canvas>
-    </div>
+<div class="container" id="container">
     <div class="scoreBoard">
-        <h4>Score</h4>
-        <span id="Score">0</span>
-        <h4>Hi-Score</h4>
-        <span id="highScore"></span>
-        <button onclick="">Start</button>
-        <button onclick="stopA()">Stop</button>
+        <h1>The Snake Game</h1>
+        <h4>Score: <span id="Score">0</span></h4>
     </div>
+    <div class="gameBoard">
+        <canvas id="myCanvas" class="canvas" width="810" height="640" ></canvas>
+    </div>
+
 </div>
 <script src="js/snake.js"></script>
 <script src="js/fruit.js"></script>

@@ -7,7 +7,7 @@ let Snake = function () {
     this.tail = [];
 
     this.draw = function () {
-        ctx.fillStyle = 'blue'
+        ctx.fillStyle = 'blue';
         for (let i=0; i<this.tail.length; i++) {
             ctx.fillRect(this.tail[i].x,
                 this.tail[i].y, sizeSnake, sizeSnake);

@@ -9,6 +9,9 @@ let isStop = false;
 
 fruit.pickLocation();
 let stopId
+
+let gameOver = document.getElementById('container').innerHTML;
+
 function start() {
     ctx.clearRect(0,0,canvas.width,canvas.height);
     fruit.draw();    snake.update();
