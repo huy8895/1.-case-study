@@ -3,8 +3,9 @@
     width: 850px;
     height:800px;
     border: 10px solid black;
-    margin: 30px auto;
+    margin: 40px auto;
     position: relative;
+    text-align: center;
 }
 .gameBoard{
     border: 2px solid black;
@@ -28,4 +29,8 @@ h1 {
     font-family: 'Orbitron', sans-serif;
     font-size: 40px;
     margin-block-end: 15px;
+}
+button{
+    font-family: 'Orbitron', sans-serif;
+    font-size: 40px;
 }

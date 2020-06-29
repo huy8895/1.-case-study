@@ -1,17 +1,14 @@
 const canvas = document.getElementById('myCanvas');
 const ctx = canvas.getContext('2d');
 const scale = 5;
-let sizeSnake = 20;
-let sizeFruit = 30;
+const sizeSnake = 20;
+const sizeFruit = 30;
 let snake = new Snake();
 let fruit = new Fruit();
 let isStop = false;
 
 fruit.pickLocation();
 let stopId
-
-let gameOver = document.getElementById('container').innerHTML;
-
 function start() {
     ctx.clearRect(0,0,canvas.width,canvas.height);
     fruit.draw();    snake.update();
@@ -25,8 +22,9 @@ function start() {
     document.getElementById('Score').innerText = snake.total;
     if (isStop === true) {
         cancelAnimationFrame(stopId);
-        alert('game over');
-        document.location.reload()
+        gameOver()
+        /*alert('game over');
+        document.location.reload()*/
     } else {
         stopId = requestAnimationFrame(start);
     }
