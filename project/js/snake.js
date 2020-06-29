@@ -92,6 +92,7 @@ let Snake = function () {
             if(this.x == this.tail[i].x && this.y == this.tail[i].y) {
                 isStop = true;
             }
+
         }
     }
 

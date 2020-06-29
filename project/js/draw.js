@@ -5,23 +5,25 @@ let sizeSnake = 20;
 let sizeFruit = 30;
 let snake = new Snake();
 let fruit = new Fruit();
-
 let isStop = false;
 
 fruit.pickLocation();
 let stopId
 function start() {
     ctx.clearRect(0,0,canvas.width,canvas.height);
-    fruit.draw();
-    snake.update();
+    fruit.draw();    snake.update();
     snake.draw();
+
     if (snake.eat(fruit)) {
         fruit.pickLocation();
+
     }
     snake.death();
     document.getElementById('Score').innerText = snake.total;
     if (isStop === true) {
         cancelAnimationFrame(stopId);
+        alert('game over');
+        document.location.reload()
     } else {
         stopId = requestAnimationFrame(start);
     }
