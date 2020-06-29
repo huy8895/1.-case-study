@@ -1,7 +1,7 @@
 const canvas = document.getElementById('myCanvas');
-let ctx = canvas.getContext('2d');
-let scale = 5;
-let size = 20;
+const ctx = canvas.getContext('2d');
+const scale = 5;
+let sizeSnake = 20;
 let sizeFruit = 30;
 let snake = new Snake();
 let fruit = new Fruit();
@@ -25,15 +25,12 @@ function start() {
     } else {
         stopId = requestAnimationFrame(start);
     }
-
 }
-
 requestAnimationFrame(start);
 
 function stopA() {
     cancelAnimationFrame(stopId);
 }
-
 window.addEventListener('keydown', ((evt) => {
     const direction = evt.key.replace('Arrow', '');
     snake.changeDirection(direction);

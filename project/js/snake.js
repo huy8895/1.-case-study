@@ -10,9 +10,9 @@ let Snake = function () {
         ctx.fillStyle = 'blue'
         for (let i=0; i<this.tail.length; i++) {
             ctx.fillRect(this.tail[i].x,
-                this.tail[i].y, size, size);
+                this.tail[i].y, sizeSnake, sizeSnake);
         }
-        ctx.fillRect(this.x,this.y,size,size);
+        ctx.fillRect(this.x,this.y,sizeSnake,sizeSnake);
     }
 
     this.update = function () {
@@ -27,17 +27,17 @@ let Snake = function () {
         this.x += this.xSpeed;
         this.y += this.ySpeed;
 
-        if (this.x + size> canvas.width){
+        if (this.x + sizeSnake> canvas.width){
             this.x = 0
         }
-        if (this.y + size> canvas.height){
+        if (this.y + sizeSnake> canvas.height){
             this.y = 0
         }
         if (this.x < 0) {
-            this.x = canvas.width - size;
+            this.x = canvas.width - sizeSnake;
         }
         if (this.y < 0) {
-            this.y = canvas.height - size;
+            this.y = canvas.height - sizeSnake;
         }
     }
     this.direction = function () {
@@ -80,8 +80,8 @@ let Snake = function () {
     }
 
     this.eat = function(fruit){
-        if((this.x + size > fruit.x && this.x  <= fruit.x + sizeFruit)
-            && (this.y + size >= fruit.y && this.y <= fruit.y + sizeFruit )){
+        if((this.x + sizeSnake > fruit.x && this.x  <= fruit.x + sizeFruit)
+            && (this.y + sizeSnake >= fruit.y && this.y <= fruit.y + sizeFruit )){
             this.total += 1;
             return true;
         }
