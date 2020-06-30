@@ -41,20 +41,20 @@ let Snake = function () {
         }
     }
     this.direction = function () {
-        if (this.x == this.tail[this.total -1].x
+        if (this.x === this.tail[this.total -1].x
         && this.y < this.tail[this.total -1].y){
             return  'up';
         }
-        if (this.x == this.tail[this.total -1].x
+        if (this.x === this.tail[this.total -1].x
             && this.y > this.tail[this.total -1].y){
             return  'down';
         }
         if (this.x > this.tail[this.total -1].x
-            && this.y == this.tail[this.total -1].y){
+            && this.y === this.tail[this.total -1].y){
             return  'right';
         }
         if (this.x < this.tail[this.total -1].x
-            && this.y == this.tail[this.total -1].y){
+            && this.y === this.tail[this.total -1].y){
             return  'left';
         }
 

@@ -23,17 +23,12 @@ function start() {
     if (isStop === true) {
         cancelAnimationFrame(stopId);
         gameOver()
-        /*alert('game over');
-        document.location.reload()*/
     } else {
         stopId = requestAnimationFrame(start);
     }
 }
 requestAnimationFrame(start);
 
-function stopA() {
-    cancelAnimationFrame(stopId);
-}
 window.addEventListener('keydown', ((evt) => {
     const direction = evt.key.replace('Arrow', '');
     snake.changeDirection(direction);
