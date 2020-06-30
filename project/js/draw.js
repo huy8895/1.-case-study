@@ -26,7 +26,8 @@ let stopId;
 
 function start() {
     ctx.clearRect(0,0,canvas.width,canvas.height);
-    fruit.draw();    snake.update();
+    fruit.draw();
+    snake.update();
     snake.draw();
     if (snake.eat(fruit)) {
         fruit.pickLocation();
