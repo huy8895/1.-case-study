@@ -1,6 +1,3 @@
-/*const GAMEBOARD_WIDTH = 500;
-const GAMEBOARD_HEIGHT = 500;*/
-
 const ORIENTATION_LEFT = "Left";
 const ORIENTATION_RIGHT = "Right";
 const ORIENTATION_UP = "Up";
@@ -18,8 +15,6 @@ const DEFAULT_SNAKE_X_POSITION = 0;
 const DEFAULT_SNAKE_Y_POSITION = 0;
 const DEFAULT_SNAKE_SPEED = 5;
 
-
-
 let canvas = document.getElementById('myCanvas');
 let ctx = canvas.getContext('2d');
 let snake = new Snake();
@@ -27,17 +22,14 @@ let fruit = new Fruit();
 let isStop = false;
 fruit.pickLocation();
 
-let stopId
-//gameStart();
+let stopId;
 
 function start() {
     ctx.clearRect(0,0,canvas.width,canvas.height);
     fruit.draw();    snake.update();
     snake.draw();
-
     if (snake.eat(fruit)) {
         fruit.pickLocation();
-
     }
     snake.death();
     document.getElementById('Score').innerText = snake.total;
@@ -53,8 +45,6 @@ function play() {
     requestAnimationFrame(start);
     document.getElementById('start_button').style.display = 'none';
 }
-
-
 
 window.addEventListener('keydown', ((evt) => {
     const direction = evt.key.replace('Arrow', '');
