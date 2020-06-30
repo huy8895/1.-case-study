@@ -1,7 +1,7 @@
 let Snake = function () {
-    this.x = 0;
-    this.y = 0;
-    this.xSpeed = scale;
+    this.x = DEFAULT_SNAKE_X_POSITION;
+    this.y = DEFAULT_SNAKE_Y_POSITION;
+    this.xSpeed = DEFAULT_SNAKE_SPEED;
     this.ySpeed = 0;
     this.total = 0;
     this.tail = [];
@@ -10,27 +10,25 @@ let Snake = function () {
         ctx.fillStyle = 'blue';
         for (let i=0; i<this.tail.length; i++) {
             ctx.fillRect(this.tail[i].x,
-                this.tail[i].y, sizeSnake, sizeSnake);
+                this.tail[i].y, SNAKE_SIZE, SNAKE_SIZE);
         }
-        ctx.fillRect(this.x,this.y,sizeSnake,sizeSnake);
+        ctx.fillRect(this.x,this.y,SNAKE_SIZE,SNAKE_SIZE);
     }
 
     this.update = function () {
         for (let i = 0; i < this.tail.length - 1; i ++){
             this.tail[i] = this.tail[i + 1];
         }
-
         this.tail[this.total - 1] = {
             x: this.x , y: this.y
         }
-
         this.x += this.xSpeed;
         this.y += this.ySpeed;
 
-        if (this.x + sizeSnake> canvas.width){
+        if (this.x + SNAKE_SIZE> canvas.width){
             isStop = true;gameOver();
         }
-        if (this.y + sizeSnake> canvas.height){
+        if (this.y + SNAKE_SIZE> canvas.height){
             isStop = true;gameOver()
         }
         if (this.x < 0) {
@@ -41,58 +39,51 @@ let Snake = function () {
         }
     }
     this.direction = function () {
-        if (this.x === this.tail[this.total -1].x
-        && this.y < this.tail[this.total -1].y){
+        if (this.ySpeed < 0){
             return  'up';
         }
-        if (this.x === this.tail[this.total -1].x
-            && this.y > this.tail[this.total -1].y){
+        if (this.ySpeed > 0){
             return  'down';
         }
-        if (this.x > this.tail[this.total -1].x
-            && this.y === this.tail[this.total -1].y){
+        if (this.xSpeed > 0){
             return  'right';
         }
-        if (this.x < this.tail[this.total -1].x
-            && this.y === this.tail[this.total -1].y){
+        if (this.xSpeed < 0){
             return  'left';
         }
-
     }
 
     this.changeDirection = function(direction){
-        if (direction === 'Up' && snake.direction() !== 'down'){
+        if (direction === ORIENTATION_UP && snake.direction() !== CURRENT_DIRECTION_DOWN){
             this.xSpeed = 0;
-            this.ySpeed = -scale;
+            this.ySpeed = -DEFAULT_SNAKE_SPEED;
         }
-        if (direction === 'Down' && snake.direction() !== 'up'){
+        if (direction === ORIENTATION_DOWN && snake.direction() !== CURRENT_DIRECTION_UP){
             this.xSpeed = 0;
-            this.ySpeed = scale;
+            this.ySpeed = DEFAULT_SNAKE_SPEED;
         }
-        if (direction === 'Left' && snake.direction() !== 'right'){
-            this.xSpeed = -scale;
+        if (direction === ORIENTATION_LEFT && snake.direction() !== CURRENT_DIRECTION_RIGHT){
+            this.xSpeed = -DEFAULT_SNAKE_SPEED;
             this.ySpeed = 0;
         }
-        if (direction === 'Right' && snake.direction() !== 'left'){
-            this.xSpeed = +scale;
+        if (direction === ORIENTATION_RIGHT && snake.direction() !== CURRENT_DIRECTION_LEFT){
+            this.xSpeed = +DEFAULT_SNAKE_SPEED;
             this.ySpeed = 0;
         }
     }
 
     this.eat = function(fruit){
-        if((this.x + sizeSnake > fruit.x && this.x  <= fruit.x + sizeFruit)
-            && (this.y + sizeSnake >= fruit.y && this.y <= fruit.y + sizeFruit )){
+        if((this.x + SNAKE_SIZE > fruit.x && this.x  <= fruit.x + FRUIT_SIZE)
+            && (this.y + SNAKE_SIZE >= fruit.y && this.y <= fruit.y + FRUIT_SIZE )){
             this.total += 1;
             return true;
         }
-
     }
     this.death = function () {
         for (let i = 0; i < this.tail.length; i ++){
             if(this.x == this.tail[i].x && this.y == this.tail[i].y) {
                 isStop = true;
             }
-
         }
     }
 
