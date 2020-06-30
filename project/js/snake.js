@@ -53,20 +53,20 @@ let Snake = function () {
         }
     }
 
-    this.changeDirection = function(direction){
-        if (direction === ORIENTATION_UP && snake.direction() !== CURRENT_DIRECTION_DOWN){
+    this.changeDirection = function(keyDirection){
+        if (keyDirection === ORIENTATION_UP && snake.direction() !== CURRENT_DIRECTION_DOWN){
             this.xSpeed = 0;
             this.ySpeed = -DEFAULT_SNAKE_SPEED;
         }
-        if (direction === ORIENTATION_DOWN && snake.direction() !== CURRENT_DIRECTION_UP){
+        if (keyDirection === ORIENTATION_DOWN && snake.direction() !== CURRENT_DIRECTION_UP){
             this.xSpeed = 0;
             this.ySpeed = DEFAULT_SNAKE_SPEED;
         }
-        if (direction === ORIENTATION_LEFT && snake.direction() !== CURRENT_DIRECTION_RIGHT){
+        if (keyDirection === ORIENTATION_LEFT && snake.direction() !== CURRENT_DIRECTION_RIGHT){
             this.xSpeed = -DEFAULT_SNAKE_SPEED;
             this.ySpeed = 0;
         }
-        if (direction === ORIENTATION_RIGHT && snake.direction() !== CURRENT_DIRECTION_LEFT){
+        if (keyDirection === ORIENTATION_RIGHT && snake.direction() !== CURRENT_DIRECTION_LEFT){
             this.xSpeed = +DEFAULT_SNAKE_SPEED;
             this.ySpeed = 0;
         }
